@@ -10,17 +10,13 @@ class SignUpForm(forms.ModelForm):
     new_password = forms.CharField(label='Password', widget=forms.PasswordInput())
     password_confirmation = forms.CharField(label='Password confirmation', widget=forms.PasswordInput())
     
-    
- 
-class PostForm(forms.ModelForm):
- """Form to ask user for post text.
-The post author must be by the post creator."""
+
+class UserForm(forms.ModelForm):
+    """Form to update user profiles."""
 
     class Meta:
         """Form options."""
 
-        model = Post
-        fields = ['text']
-        widgets = {
-            'text': forms.Textarea()
-        }
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'bio']
+        widgets = { 'bio': forms.Textarea() }
