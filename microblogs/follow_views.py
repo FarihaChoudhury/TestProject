@@ -9,7 +9,7 @@ def follow_toggle(request, user_id):
     current_user = request.user
     try:
         followee = User.objects.get(id=user_id)
-        print("got followee")
+        print("followee found")
         current_user.toggle_follow(followee)
     except ObjectDoesNotExist:
         return redirect('user_list')
